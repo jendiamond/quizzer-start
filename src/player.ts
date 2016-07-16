@@ -51,8 +51,8 @@ class Position {
   providers: [QuizService, ROUTER_PROVIDERS]
 })
 
-export class PlayerComponent implements OnInit{
-  position: Position;
+export class PlayerComponent implements OnInit {
+  position:Position;
   questions:IQuizList;
   index = 0;
   title = "";
@@ -64,8 +64,11 @@ export class PlayerComponent implements OnInit{
   total = 0;
   answers:Array<boolean[]> = [];
   responses = [];
+  right = 0;
+  showAnswers = false;
 
-  constructor(private _quizService:QuizService, private _routeParams:RouteParams){
+
+  constructor(private _quizService:QuizService, private _routeParams:RouteParams) {
     this.position = new Position();
   }
 
@@ -87,15 +90,15 @@ export class PlayerComponent implements OnInit{
 
   }
 
-  seekToQuestion(direction:Seek){
-    if(direction !== Seek.Beginning){
-      this.answers[this.position.getPosition()] = this.getPlayerResponses(this.responses,this.current.choices);
+  seekToQuestion(direction:Seek) {
+    if (direction !== Seek.Beginning) {
+      this.answers[this.position.getPosition()] = this.getPlayerResponses(this.responses, this.current.choices);
     }
 
-    this.position.seek(direction)
+    this.position.seek(direction);
     let pos = this.position.getPosition();
-    this.current = this.quiestions.quiz.quiestions[pos];
-    this.responses = (this.answers[pos]? this.answers[pos]: [];
+    this.current = this.questions.quiz.questions[pos];
+    this.responses = (this.answers[pos]) ? this.answers[pos] : [];
     this.index = pos;
   }
 
@@ -103,7 +106,7 @@ export class PlayerComponent implements OnInit{
     let ndx:number;
     let newResponses = question.map(()=> false);
 
-    for(ndx=0; ndx < responses.length; ndx += 1) {
+    for (ndx = 0; ndx < responses.length; ndx += 1) {
       if (responses[ndx]) {
         newResponses[ndx] = true;
       }
@@ -111,8 +114,18 @@ export class PlayerComponent implements OnInit{
     return newResponses;
   }
 
-  previous = () => this.seekToQuestion(Seek.Backward);
-  next = () => this.seekToQuestion(Seek.Forward);
-  score = () => );
-}
+  tabulate() {
 
+  }
+
+  previous = () => this.seekToQuestion(Seek.Backward);
+
+  next = () => this.seekToQuestion(Seek.Forward);
+
+  score = () => {
+    this.seekToQuestion(Seek.Score);
+    this.right = this.tabulate();
+    this.showAnswers = true;
+    this.seekToQuestion(Seek.Beginning);
+  }
+}
