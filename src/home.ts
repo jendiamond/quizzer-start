@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {AboutComponent} from "./about";
 import {QuizComponent} from "./quiz";
+import {PlayerComponent} from "./player";
 
 @RouteConfig([
   {
