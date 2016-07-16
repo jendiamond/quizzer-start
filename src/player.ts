@@ -64,6 +64,9 @@ export class PlayerComponent implements OnInit {
   total = 0;
   answers:Array<boolean[]> = [];
   responses = [];
+  right = 0;
+  showAnswers = false;
+
 
   constructor(private _quizService:QuizService, private _routeParams:RouteParams) {
     this.position = new Position();
@@ -109,5 +112,20 @@ export class PlayerComponent implements OnInit {
       }
     }
     return newResponses;
+  }
+
+  tabulate() {
+
+  }
+
+  previous = () => this.seekToQuestion(Seek.Backward);
+
+  next = () => this.seekToQuestion(Seek.Forward);
+
+  score = () => {
+    this.seekToQuestion(Seek.Score);
+    this.right = this.tabulate();
+    this.showAnswers = true;
+    this.seekToQuestion(Seek.Beginning);
   }
 }
