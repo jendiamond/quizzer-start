@@ -18,7 +18,8 @@ import {PlayerComponent} from "./player";
   {
     path: "/quiz",
     name: "Quiz",
-    component: QuizComponent
+    component: QuizComponent,
+    useAsDefault: true
   },
   {
     path: "/player/:id",

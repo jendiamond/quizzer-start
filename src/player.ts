@@ -77,7 +77,8 @@ export class PlayerComponent implements OnInit {
   }
 
   getQuiz() {
-    let data = this._quizService.getQuiz(1);
+    let id = +this._routeParams.get('id');
+    let data = this._quizService.getQuiz(id);
     this.questions = data;
     this.title = data.title;
     this.tagLine = data.tagLine;
@@ -87,7 +88,6 @@ export class PlayerComponent implements OnInit {
     this.position.setMax(this.total);
     this.position.seek(Seek.Beginning);
     this.seekToQuestion(Seek.Beginning);
-
   }
 
   seekToQuestion(direction:Seek) {
