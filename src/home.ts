@@ -2,27 +2,28 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {AboutComponent} from "./about";
 import {QuizComponent} from "./quiz";
+import {PlayerComponent} from "./player";
 
 @RouteConfig([
   {
-    path:"/about",
-    name:"About",
+    path: "/about",
+    name: "About",
     component: AboutComponent
   },
   {
-    path:"/login",
-    name:"Login",
+    path: "/login",
+    name: "Login",
     component: AboutComponent
   },
   {
-    path:"/quiz",
-    name:"Quiz",
+    path: "/quiz",
+    name: "Quiz",
     component: QuizComponent
   },
   {
-    path:"/player/:id",
+    path: "/player/:id",
     name: 'Player',
-    component: AboutComponent
+    component: PlayerComponent
   }
 ])
 
@@ -34,6 +35,6 @@ import {QuizComponent} from "./quiz";
 })
 
 export class HomeComponent {
-  constructor(){
+  constructor() {
   }
 }
