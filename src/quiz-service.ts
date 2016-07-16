@@ -1,5 +1,5 @@
 import {Injectable, Inject} from 'angular2/core';
-let quiz = [[
+let quiz = [
   {
     "title": "U.S. Citizenship",
     "tagLine": "Think you can pass this quiz of basic knowledge of American government, history, and geography?",
@@ -364,18 +364,17 @@ let quiz = [[
       ]
     }
   }
-]];
+];
 
 @Injectable()
-export class QuizService implements IQuizService{
-  
-
-  getQuiz(id:Number):IQuizList {
-    let currentQuiz = quiz.filter((item) => item._id ===id );
+export class QuizService implements IQuizService {
+  getQuiz(id:number):IQuizList {
+    let currentQuiz = quiz.filter((item) => item._id === id);
     return currentQuiz[0];
   }
 
-  getQuizes():IQuizList[] {
+  getQuizzes():IQuizList[] {
     return quiz;
   }
+
 }

@@ -1,10 +1,10 @@
-import {Component} from 'angular2/core';
-import {QuizService} from "./quiz-service";
+import {Component, OnInit} from 'angular2/core';
+import {QuizService} from './quiz-service';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
   selector: 'quiz',
-  templateUrl: './services/quiz.html',
+  templateUrl: './templates/quiz.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [QuizService]
 })
@@ -12,7 +12,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 export class QuizComponent implements OnInit {
   quizList:IQuizList[] = [];
 
-  constructor(private _quizService:QuizService) {
+  constructor(private _quizService:QuizService){
   }
 
   ngOnInit():any {

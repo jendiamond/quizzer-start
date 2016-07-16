@@ -17,11 +17,11 @@ import {QuizComponent} from "./quiz";
   {
     path:"/quiz",
     name:"Quiz",
-    component: AboutComponent
+    component: QuizComponent
   },
   {
     path:"/player/:id",
-    name:"Player",
+    name: 'Player',
     component: AboutComponent
   }
 ])
