@@ -51,8 +51,8 @@ class Position {
   providers: [QuizService, ROUTER_PROVIDERS]
 })
 
-export class PlayerComponent implements OnInit{
-  position: Position;
+export class PlayerComponent implements OnInit {
+  position:Position;
   questions:IQuizList;
   index = 0;
   title = "";
@@ -62,8 +62,10 @@ export class PlayerComponent implements OnInit{
     choices: []
   };
   total = 0;
+  answers:Array<boolean[]> = [];
+  responses = [];
 
-  constructor(private _quizService:QuizService, private _routeParams:RouteParams){
+  constructor(private _quizService:QuizService, private _routeParams:RouteParams) {
     this.position = new Position();
   }
 
@@ -85,7 +87,27 @@ export class PlayerComponent implements OnInit{
 
   }
 
-  seekToQuestion(direction:Seek){
-    // if(direction !== Seek.Be)
+  seekToQuestion(direction:Seek) {
+    if (direction !== Seek.Beginning) {
+      this.answers[this.position.getPosition()] = this.getPlayerResponses(this.responses, this.current.choices);
+    }
+
+    this.position.seek(direction);
+    let pos = this.position.getPosition();
+    this.current = this.questions.quiz.questions[pos];
+    this.responses = (this.answers[pos]) ? this.answers[pos] : [];
+    this.index = pos;
+  }
+
+  getPlayerResponses(responses:Array<boolean>, question:IChoice[]):boolean[] {
+    let ndx:number;
+    let newResponses = question.map(()=> false);
+
+    for (ndx = 0; ndx < responses.length; ndx += 1) {
+      if (responses[ndx]) {
+        newResponses[ndx] = true;
+      }
+    }
+    return newResponses;
   }
 }
