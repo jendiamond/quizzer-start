@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {AboutComponent} from "./about";
+import {QuizComponent} from "./quiz";
 
 @RouteConfig([
   {
@@ -18,6 +19,11 @@ import {AboutComponent} from "./about";
     name:"Quiz",
     component: AboutComponent
   },
+  {
+    path:"/player/:id",
+    name:"Player",
+    component: AboutComponent
+  }
 ])
 
 @Component({
