@@ -6,24 +6,24 @@ import {PlayerComponent} from "./player";
 
 @RouteConfig([
   {
-    path:"/about",
-    name:"About",
+    path: "/about",
+    name: "About",
     component: AboutComponent
   },
   {
-    path:"/login",
-    name:"Login",
+    path: "/login",
+    name: "Login",
     component: AboutComponent
   },
   {
-    path:"/quiz",
-    name:"Quiz",
+    path: "/quiz",
+    name: "Quiz",
     component: QuizComponent
   },
   {
-    path:"/player/:id",
+    path: "/player/:id",
     name: 'Player',
-    component: AboutComponent
+    component: PlayerComponent
   }
 ])
 
@@ -35,6 +35,6 @@ import {PlayerComponent} from "./player";
 })
 
 export class HomeComponent {
-  constructor(){
+  constructor() {
   }
 }
