@@ -1,31 +1,32 @@
 <html>
-<head>
-  <title>Quizzer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <head>
+    <title>Quizzer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-  <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
-  <script>
-    System.config({
-      format: 'register',
-      packages: {
-        'src/': {
-          defaultJSExtension: true
+    <script>
+      System.config({
+        format: 'register',
+        packages: {
+          'src/': {
+            defaultJSExtension: true
+          }
         }
-      }
-    });
-    System.import('src/main.js').then(null, console.error.bind(console));
-  </script>
-</head>
+      });
+      System.import('src/main.js').then(null, console.error.bind(console));
+    </script>
+  </head>
 
-<body style="font-size: x-large;">
-<h1>Quizzer-ng2</h1>
-<home></home>
-</body>
+  <body style="font-size: x-large;">
+    <h1>Quizzer-ng2</h1>
+    <home></home>
+  </body>
 </html>
