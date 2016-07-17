@@ -20,6 +20,9 @@ export class QuizComponent implements OnInit {
   }
 
   getQuiz() {
-    this.quizList = this._quizService.getQuizzes();
+    this._quizService.getQuizzes().then(
+      (quiz) => this.quizList = quiz,
+      (error) => console.log(error)
+      )
   }
 }

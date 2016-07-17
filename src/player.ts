@@ -3,7 +3,6 @@ import {RouteParams, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {QuizService} from './quiz-service';
 import {Seek} from './Seek';
 
-//
 class Position {
   index:number;
   total:number;
@@ -67,7 +66,6 @@ export class PlayerComponent implements OnInit {
   right = 0;
   showAnswers = false;
 
-
   constructor(private _quizService:QuizService, private _routeParams:RouteParams) {
     this.position = new Position();
   }
@@ -78,16 +76,23 @@ export class PlayerComponent implements OnInit {
 
   getQuiz() {
     let id = +this._routeParams.get('id');
-    let data = this._quizService.getQuiz(id);
-    this.questions = data;
-    this.title = data.title;
-    this.tagLine = data.tagLine;
-    this.current = data.quiz.questions[0];
-    this.total = data.quiz.questions.length;
 
-    this.position.setMax(this.total);
-    this.position.seek(Seek.Beginning);
-    this.seekToQuestion(Seek.Beginning);
+    this._quizService.getQuiz(id).then(
+      (data) => {
+        this.questions = data;
+        this.title = data.title;
+        this.tagLine = data.tagLine;
+        this.current = data.quiz.questions[0];
+        this.total = data.quiz.questions.length;
+
+        this.position.setMax(this.total);
+        this.position.seek(Seek.Beginning);
+        this.seekToQuestion(Seek.Beginning);
+      },
+      (error) => {
+        console.log("Error: " + error);
+      }
+    );
   }
 
   seekToQuestion(direction:Seek) {
