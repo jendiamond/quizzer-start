@@ -2,10 +2,10 @@ import {Component} from 'angular2/core';
 
 @Component({
   selector: 'footer',
-  template: '<div></div>'
+  template: 'Copyright ©2016'
 })
 
-export class FooterComponent {
+export class FooterComponent{
   constructor(){
+
   }
-}
