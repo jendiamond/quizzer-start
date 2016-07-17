@@ -4,6 +4,7 @@ import {AboutComponent} from "./about";
 import {QuizComponent} from "./quiz";
 import {PlayerComponent} from "./player";
 import {FooterComponent} from "./footer";
+import {LoginComponent} from "./login";
 
 @RouteConfig([
   {
@@ -14,7 +15,7 @@ import {FooterComponent} from "./footer";
   {
     path: "/login",
     name: "Login",
-    component: AboutComponent
+    component: LoginComponent
   },
   {
     path: "/quiz",
