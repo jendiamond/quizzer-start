@@ -5,7 +5,6 @@ import {MockBackend} from 'angular2/http/testing';
 import {HTTP_PROVIDERS, Http, BaseRequestOptions} from 'angular2/http';
 import {FakeWebServer} from './fake-webserver';
 
-
 bootstrap(HomeComponent, [
   HTTP_PROVIDERS,
   BaseRequestOptions,
