@@ -1,8 +1,11 @@
+'use strict';
+
 import {Component, OnInit} from 'angular2/core';
 import {RouteParams, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {QuizService} from './quiz-service';
 import {Seek} from './Seek';
 
+//
 class Position {
   index:number;
   total:number;
@@ -65,6 +68,7 @@ export class PlayerComponent implements OnInit {
   responses = [];
   right = 0;
   showAnswers = false;
+
 
   constructor(private _quizService:QuizService, private _routeParams:RouteParams) {
     this.position = new Position();

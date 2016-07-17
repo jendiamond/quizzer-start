@@ -12,7 +12,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 export class QuizComponent implements OnInit {
   quizList:IQuizList[] = [];
 
-  constructor(private _quizService:QuizService){
+  constructor(private _quizService:QuizService) {
   }
 
   ngOnInit():any {
@@ -23,6 +23,10 @@ export class QuizComponent implements OnInit {
     this._quizService.getQuizzes().then(
       (quiz) => this.quizList = quiz,
       (error) => console.log(error)
+<<<<<<< HEAD
       )
+=======
+    )
+>>>>>>> e153be55cc332d103daaedf4e708dc4b3e2e88d9
   }
 }

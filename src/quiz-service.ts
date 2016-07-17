@@ -5,6 +5,7 @@ import  'rxjs/Rx';
 
 const baseUrl = "api/";
 const quizzesEndPoint = "quizzes";
+const quizEndPoint = `quiz/`;
 
 @Injectable()
 export class QuizService implements IQuizService {
@@ -12,7 +13,7 @@ export class QuizService implements IQuizService {
   }
 
   getQuiz(id:number):Promise<IQuizList> {
-    return this.http.get(`${baseUrl}${quizzesEndPoint${id}}`)
+    return this.http.get(`${baseUrl}${quizEndPoint}${id}`)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
