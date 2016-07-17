@@ -127,7 +127,6 @@ export class PlayerComponent implements OnInit {
     return questions.reduce((previousScore, currentQuestion, index)=> {
       let question = currentQuestion.choices.map((choice:IChoice) => !!choice.isAnswer);
       let answer = answers[index];
-
       let points = (answer && question.every((val, index) => val === answer[index]) ? 1 : 0);
       return previousScore + points;
     }, 0);
@@ -139,7 +138,6 @@ export class PlayerComponent implements OnInit {
 
   score = () => {
     this.seekToQuestion(Seek.Score);
-    debugger;
     this.right = this.tabulate(this.questions.quiz.questions, this.answers);
     this.showAnswers = true;
     this.seekToQuestion(Seek.Beginning);
