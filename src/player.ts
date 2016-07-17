@@ -88,7 +88,6 @@ export class PlayerComponent implements OnInit {
     this.position.setMax(this.total);
     this.position.seek(Seek.Beginning);
     this.seekToQuestion(Seek.Beginning);
-
   }
 
   seekToQuestion(direction:Seek) {
