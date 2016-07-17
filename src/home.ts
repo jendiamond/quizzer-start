@@ -3,6 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router'
 import {AboutComponent} from "./about";
 import {QuizComponent} from "./quiz";
 import {PlayerComponent} from "./player";
+import {FooterComponent} from "./footer";
 
 @RouteConfig([
   {
@@ -31,7 +32,7 @@ import {PlayerComponent} from "./player";
 @Component({
   selector: 'home',
   templateUrl: './templates/home.html',
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, FooterComponent],
   providers: [ROUTER_PROVIDERS]
 })
 
