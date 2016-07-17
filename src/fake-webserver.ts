@@ -372,17 +372,17 @@ let quiz = [
 
 @Injectable()
 export class FakeWebServer {
-  constructor(private _backend:MockBackend){
+  constructor(private _backend:MockBackend) {
     this._backend.connections.subscribe(c => {
       const singleQuizMatch = /api\/quiz\/([0-9a-f]+)/i;
 
       console.log("URL: " + c.request.url);
 
-      if(c.request.url === "api/quizzes" && c.request.method === 0){
+      if (c.request.url === "api/quizzes" && c.request.method === 0) {
         c.mockRespond(new Response({
           body: JSON.stringify(quiz)
         }));
-      } else if(c.request.url.match(singleQuizMatch) && c.request.method === 0){
+      } else if (c.request.url.match(singleQuizMatch) && c.request.method === 0) {
         let matches = quiz.filter((t)=> {
           return t._id == c.request.url.match(singleQuizMatch)[1];
         });
