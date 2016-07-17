@@ -8,6 +8,7 @@ import {Component} from 'angular2/core';
 export class LoginComponent{
   public username:string;
   public password:string;
+  public email:string;
 
   constructor(){
     // this.username = "Troy";
