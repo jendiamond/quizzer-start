@@ -368,13 +368,24 @@ let quiz = [
 
 @Injectable()
 export class QuizService implements IQuizService {
+  constructor(private http:Http, @Inject(FakeWebServer fake:FakeWebServer){
+  }
+
   getQuiz(id:number):IQuizList {
-    let currentQuiz = quiz.filter((item) => item._id === id);
+    //let currentQuiz = quiz.filter((item) => item._id === id);
     return currentQuiz[0];
   }
 
-  getQuizzes():IQuizList[] {
-    return quiz;
+  getQuizzes():PromisesIQuizList[] {
+    return this.http.get(`${baseUrl}${quizzesEndPoint}`)
+    .toPromise()
+    .then(this.extractData)
+    .catch(this.handleError);
   }
 
+private extractData(res:Response){
+  if (res.status)< 200 || res.status >= 300) {
+    throw
+  }
+}
 }
