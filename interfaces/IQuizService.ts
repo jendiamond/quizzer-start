@@ -1,5 +1,5 @@
 
 interface IQuizService {
-  getQuizzes(): IQuizList[];
-  getQuiz(id: number): IQuizList;
+  getQuizzes(): Promise<IQuizList[]>;
+  getQuiz(id: number): Promise<IQuizList>;
 }
