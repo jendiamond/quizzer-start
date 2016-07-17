@@ -1,7 +1,7 @@
 <div>
   <div [hidden]="submitted">
     <h1>Login Form</h1>
-    <form  (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
       <div>
         <label for="username">User Name</label>
         <input id="username"
@@ -9,21 +9,24 @@
                required
                [(ngModel)]="username"
                placeholder="(username)"
-               ngControl="username" #spy
-        >
-        <br>TODO: remove this: {{spy.className}}
-        <div >
+               ngControl="username" #name="ngForm">
+        <span [hidden]="name.valid || name.pristine">
           Name is required
-        </div>
+        </span>
       </div>
       <div>
         <label for="password">Password</label>
         <input id="password"
                type="password"
                required
-               [(ngModel)]="password">
+               pattern=".{6,}"
+               [(ngModel)]="password"
+               ngControl="password" #pass="ngForm">
+        <span [hidden]="pass.valid || pass.pristine">
+          Password is required (and must be 6 chars long)
+        </span>
       </div>
-      <button type="submit" >Login</button>
+      <button [disabled]="!heroForm.valid" type="submit" >Login</button>
     </form>
   </div>
 </div>

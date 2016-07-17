@@ -1,13 +1,20 @@
 import {Component} from 'angular2/core';
 
 @Component({
-  selector: 'home',
-  templateUrl: './templates/home.html',
-  directives: [ROUTER_DIRECTIVES, FooterComponent],
-  providers: [ROUTER_PROVIDERS]
+  selector: 'login',
+  templateUrl: './templates/login.html'
 })
 
-export class HomeComponent {
-  constructor() {
+export class LoginComponent{
+  public username:string;
+  public password:string;
+
+  constructor(){
+    // this.username = "Troy";
+    // this.password = "my secret";
+  }
+
+  onSubmit(){
+    console.log(JSON.stringify(this));
   }
 }
